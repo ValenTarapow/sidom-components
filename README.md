@@ -31,3 +31,10 @@ MIT
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+
+## To see example app
+
+```sh
+cd example
+yarn android
+```
