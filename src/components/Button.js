@@ -10,7 +10,12 @@ import { colors } from '../utils/colors';
 import { getFont } from '../utils/fonts';
 
 export default function Button(props) {
-  const { loading, text, onPress, color = 'blue' } = props;
+  const {
+    loading,
+    text = 'Button',
+    onPress,
+    color = colors.defaultBrand1,
+  } = props;
 
   const getButtonText = () => {
     return loading ? (

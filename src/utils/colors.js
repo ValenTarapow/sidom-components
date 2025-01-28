@@ -15,4 +15,8 @@ export const colors = {
   black2: 'rgba(0, 0, 0, 0.87)',
 
   backgroundGrey: '#f7f8fb',
+
+  defaultBrand1: '#E35226',
+  defaultBrand2: '#B83B13',
+  defaultBrand3: '#EA935D',
 };
