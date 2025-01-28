@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { SvgCss } from 'react-native-svg';
+import { SvgCss } from 'react-native-svg/css';
 
 const xml = (color, size) => `
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 363.47 150.48">
