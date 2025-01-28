@@ -196,5 +196,9 @@
     "languages": "js",
     "type": "library",
     "version": "0.45.5"
+  },
+  "dependencies": {
+    "@rneui/base": "^4.0.0-rc.8",
+    "react-native-svg": "^15.11.1"
   }
 }
