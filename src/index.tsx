@@ -10,3 +10,9 @@ export { ButtonBack };
 
 const Modal = require('./components/Modal.js').default;
 export { Modal };
+
+const Loading = require('./components/Loading.js').default;
+export { Loading };
+
+const ToggleSwitch = require('./components/ToggleSwitch.js').default;
+export { ToggleSwitch };

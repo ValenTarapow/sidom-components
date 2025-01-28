@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Button, ButtonBack, Modal } from 'sidom-components';
+import { Button, ButtonBack, Modal, ToggleSwitch } from 'sidom-components';
 
 export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -24,6 +24,11 @@ export default function App() {
           text="This is an example modal content."
         />
       )}
+
+      <ToggleSwitch
+        onToggle={(newValue: boolean) => console.log(newValue)}
+        text="Switch example"
+      />
     </View>
   );
 }
