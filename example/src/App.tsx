@@ -1,12 +1,11 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'sidom-components';
-
-const result = multiply(3, 7);
+import { Button } from 'sidom-components';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>SIDOM Mobile - React Native Components Library</Text>
+      <Button text={'Button'} onPress={() => {}} />
     </View>
   );
 }
