@@ -22,3 +22,6 @@ export { CuitSelector };
 
 const SidomInput = require('./components/Login/SidomInput.js').default;
 export { SidomInput };
+
+const Dropdown = require('./components/Dropdown.js').default;
+export { Dropdown };

@@ -199,6 +199,7 @@
   },
   "dependencies": {
     "@rneui/base": "^4.0.0-rc.8",
+    "react-native-element-dropdown": "^2.12.4",
     "react-native-safe-area-context": "^5.2.0",
     "react-native-svg": "^15.11.1"
   }
