@@ -19,3 +19,6 @@ export { ToggleSwitch };
 
 const CuitSelector = require('./components/Login/CuitSelector.js').default;
 export { CuitSelector };
+
+const SidomInput = require('./components/Login/SidomInput.js').default;
+export { SidomInput };
