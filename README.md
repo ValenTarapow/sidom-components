@@ -1,6 +1,6 @@
 # sidom-components
 
-A library of reusable React Native components for SIDOM apps
+A library of reusable React Native components for SIDOM apps, made using create-react-native-library
 
 ## Installation
 
