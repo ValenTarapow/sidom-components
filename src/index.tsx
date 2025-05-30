@@ -16,3 +16,6 @@ export { Loading };
 
 const ToggleSwitch = require('./components/ToggleSwitch.js').default;
 export { ToggleSwitch };
+
+const CuitSelector = require('./components/Login/CuitSelector.js').default;
+export { CuitSelector };

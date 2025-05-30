@@ -6,80 +6,58 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
-import { getFont } from '../../../utils/fonts';
-import { loginWithCuit } from '../../../store/session/actions';
-import { colors } from '../../../utils/colors';
-import ChevronRight from '../../../components/Icons/ChevronRight';
-import { Layout } from '../../Layout';
+import { getFont } from '../../../src/utils/fonts';
+import { colors } from '../../../src/utils/colors';
+import ChevronRight from '../../components/Icons/ChevronRight';
 import { SvgUri } from 'react-native-svg';
 
-export default function CuitSelector(cuits, user, password) {
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
-
-  const sortedCuits =
-    Array.isArray(cuits) && cuits.length > 0
-      ? cuits.slice().sort((a, b) => a.razonSocial.localeCompare(b.razonSocial))
-      : [];
-
-  const onSelectCuit = (cuit) => {
-    dispatch(
-      loginWithCuit(cuit, user, password, () =>
-        navigation.navigate('Insurance', { screen: 'CompanySelectorPage' })
-      )
-    );
-  };
+export default function CuitSelector({ cuits = [], onSelect }) {
+  const sortedCuits = cuits
+    .slice()
+    .sort((a, b) => a.razonSocial.localeCompare(b.razonSocial));
 
   return (
-    <Layout navigation={navigation} hideCuitSelector section="Sidom Insurance">
-      <View style={styles.wrapper}>
-        <View style={styles.header}>
-          <View style={styles.row}>
-            <Text style={styles.welcome}>Bienvenido</Text>
-          </View>
-          <Text style={styles.message}>
-            Seleccione una cuenta para comenzar
-          </Text>
+    <View style={styles.wrapper}>
+      <View style={styles.header}>
+        <View style={styles.row}>
+          <Text style={styles.welcome}>Bienvenido</Text>
         </View>
-        <ScrollView
-          style={styles.scrollContainer}
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-        >
-          {sortedCuits.map((c) => (
-            <TouchableOpacity
-              onPress={() => onSelectCuit(c)}
-              key={`cuit-selector-${c.cuit}`}
-            >
-              <View style={styles.card}>
-                <View>
-                  <SvgUri
-                    width={24}
-                    height={24}
-                    uri={`https://app.sidom.io/assets/styles/umsa_2022/images/flags/${c.flag}.svg`}
-                  />
-                </View>
-                <View style={styles.userDetails}>
-                  <Text numberOfLines={1} style={styles.user}>
-                    {c.razonSocial}
-                  </Text>
-                  <Text numberOfLines={1} style={styles.cuit}>
-                    {`CUIT ${c.cuit}`}
-                  </Text>
-                </View>
-                <ChevronRight
-                  size={16}
-                  color={colors.brand1}
-                  style={styles.arrow}
-                />
-              </View>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
+        <Text style={styles.message}>Seleccione una cuenta para comenzar</Text>
       </View>
-    </Layout>
+      <ScrollView
+        style={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        {sortedCuits.map((c) => (
+          <TouchableOpacity
+            onPress={() => onSelect && onSelect(c)}
+            key={`cuit-selector-${c.cuit}`}
+          >
+            <View style={styles.card}>
+              <SvgUri
+                width={24}
+                height={24}
+                uri={`https://app.sidom.io/assets/styles/umsa_2022/images/flags/${c.flag}.svg`}
+              />
+              <View style={styles.userDetails}>
+                <Text numberOfLines={1} style={styles.user}>
+                  {c.razonSocial}
+                </Text>
+                <Text numberOfLines={1} style={styles.cuit}>
+                  {`CUIT ${c.cuit}`}
+                </Text>
+              </View>
+              <ChevronRight
+                size={16}
+                color={colors.brand1}
+                style={styles.arrow}
+              />
+            </View>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
 
